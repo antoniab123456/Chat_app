@@ -1,0 +1,194 @@
+body{
+    font-family: sans-serif;
+    font-size: 16px;
+    background-color: #4B0082;
+}
+
+.chat_window{
+    border-radius: 10px;
+    width: 42%;
+    height: 620px;
+    position: absolute;
+    top: 60px;
+    left: 30%;
+    background-color: #fff;
+    overflow: hidden;
+    border: none;
+    box-sizing: border-box;
+  }
+  
+  .message_container{
+    padding: 0px 7px 0px 7px;
+    height: 400px;
+    overflow: hidden;
+    overflow-y: scroll;
+    position: relative;
+    top: -35px;
+    margin-top: 40px;
+   
+  }
+  .chat_hat{
+    width: 100%;
+    background-color: rgb(58, 154, 210);
+    color: #fff;
+    margin: 0;
+    padding-top: 2px;
+    box-sizing: border-box;
+  }
+
+  .chat_hat p{
+    font-size: 35px;
+    text-align: center;
+    position: relative;
+    top: -15px;
+  }
+  
+  #chat_sent{
+    margin-top: 27px;
+    background-color: rgb(192, 221, 239)	;
+    width: 46%;
+    position: relative;
+    right: -315px;
+    border-top-right-radius: 2em 2em;
+    border-top-left-radius: 1em 1em;
+    border-bottom-left-radius: 1em 1em;
+    border-bottom-right-radius: 4em 0em;
+    overflow: hidden;
+  }
+  
+  #chat_received{
+    margin-top: 27px;
+    background-color:	rgb(235, 241, 245);
+    width: 46%;
+    position: relative;
+    left: -26px;
+    border-radius: 5px;
+    margin-left: 0px;
+    border-top-left-radius: 2em 2em;
+    border-top-right-radius: 1em 1em;
+    border-bottom-right-radius: 1em 1em;
+    border-bottom-left-radius: 4em 0em;
+    overflow: hidden;
+
+  }
+  
+ 
+  #chat_received p{
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 1.3em;
+    padding: 2px 0px 0px 30px;
+
+  }
+
+  #chat_sent p{
+    font-family: Helvetica;
+    line-height: 1.4em;
+    font-size: 16px;
+    padding: 2px 15px 0px 20px;
+
+  }
+  
+  
+ 
+  
+  
+  .time_sent{
+    position: relative;
+    bottom: 10px;
+    top: -10px;
+    left: 210px;
+    font-size: 12px;
+    color:	#A0A0A0;
+    float: left;
+
+  }
+  
+  .time_received{
+    position: relative;
+    font-size: 12px;
+    color:	#A0A0A0;
+    float: right;
+    bottom: 10px;
+    right: 210px;
+    top: -10px;
+    font-size: 12px;
+    color:	#A0A0A0;
+   
+  }
+  .name_sent{
+    float: right;
+    position: relative;
+    right: 35px;
+    top: -7px;
+}
+.name_received{
+    float: left;
+    position: relative;
+    left: 39px;
+    top: -7px;
+  }
+
+  
+  .name_sent p,
+  .name_received p{
+    font-size: 15px;
+    color:	#A0A0A0;
+  }
+
+  .enter_message{
+    background-color: #E8E8E8;
+    width: 100%;
+    height: 60%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  #name{
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: sans-serif;
+    outline: none;
+    padding: 5px;
+    margin-top: 10px;
+    margin-left: 25px;
+    width: 92%;
+    padding-left: 15px;
+
+  }
+  
+  #textarea_message{
+    width: 92%;
+    border-radius: 5px;
+    bottom: 10px;
+    font-size: 16px;
+    font-family: sans-serif;
+    overflow-y: scroll;
+    border: none;
+    outline: none;
+    position: relative;
+    top: 10px;
+    left: 25px;
+    resize: none;
+    height: 50px;
+    padding: 15px 0 0 15px;
+  
+  }
+  #textarea_message::placeholder{
+    font-size: 16px;
+    font-family: sans-serif;
+  }
+  
+  
+
+  .footer{
+    position: absolute;
+    top: 730px;
+    left: 550px;
+    font-size: 19px;
+    color: #A0A0A0;
+  }
+
+  .footer a{
+      color:#F5F5F5;
+  }
