@@ -1,0 +1,92 @@
+/* Styles for the Emoji panel */
+
+#emoji_panel p {
+    font-family: Helvetica;
+    font-size: 30px;
+    color: #A9A9A9;
+    float: right;
+    position: relative;
+    top: -30px;
+    right: 70px;
+}
+
+#emoji_panel:hover p {
+    color: #808080;
+    cursor: pointer;
+}
+
+.around_emojis {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+
+#emoji_section {
+    background-color: #fff;
+    border: 1px solid #A9A9A9;
+    width: 20%;
+    border-radius: 5px;
+    height: 180px;
+    margin: 20% auto;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+    animation-name: openemoji;
+    animation-duration: 1s;
+    box-sizing: border-box;
+    position: fixed;
+    top: 140px;
+    left: 56.3%;
+}
+
+#emoji_list {
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 179px;
+    box-sizing: border-box;
+}
+
+#emoji_section:after {
+    content: '';
+    width: 0px;
+    height: 0px;
+    border-top: 10px solid #fff;
+    border-left: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid transparent;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -10px;
+}
+
+#emoji_section ul {
+    margin-top: 50px;
+}
+
+#emoji_section li {
+    float: left;
+    display: inline;
+    margin: 0;
+    padding: 0px 5px 0 5px;
+    position: relative;
+    top: -40px;
+}
+
+.emoji:hover {
+    cursor: pointer;
+}
+
+/* Animations*/
+
+@keyframes openemoji {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}

@@ -1,0 +1,38 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 16px;
+  background-color: #4B0082;
+  color: #505050;
+}
+
+.chat_window {
+  border-radius: 10px;
+  width: 42%;
+  height: 620px;
+  position: absolute;
+  top: 60px;
+  left: 30%;
+  background-color: rgb(245, 245, 245);
+  overflow: hidden;
+  border: 1px solid rgb(169, 169, 169);
+  box-sizing: border-box;
+}
+
+/*Styles for the footer*/
+
+.footer {
+  position: absolute;
+  top: 730px;
+  left: 550px;
+  font-size: 19px;
+  color: #A0A0A0;
+}
+
+.footer a {
+  color: #F5F5F5;
+}

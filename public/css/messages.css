@@ -1,0 +1,146 @@
+/* Container for all  sent and received messages */
+
+.message_container {
+    padding: 10px 5px 0px 15px;
+    height: 420px;
+    overflow: hidden;
+    overflow-y: scroll;
+    position: relative;
+    width: 100%;
+    top: 0px;
+    box-sizing: border-box;
+}
+
+/* Styling for the header */
+
+.chat_hat {
+    width: 100%;
+    background-color: rgb(58, 154, 210);
+    color: #fff;
+    margin: 0;
+    padding-top: 30px;
+    box-sizing: border-box;
+}
+
+.chat_hat p {
+    font-size: 35px;
+    text-align: center;
+    position: relative;
+    top: -15px;
+}
+
+/* Styles for received messages */
+
+.name_received {
+    float: left;
+    position: absolute;
+    top: 20px;
+    left: 25px;
+}
+
+.name_received p {
+    font-size: 15px;
+    color: #505050;
+}
+
+.chat_received {
+    margin-top: 30px;
+    background-color: #bcdcec;
+    width: 46%;
+    position: relative;
+    left: 0px;
+    border-radius: 5px;
+    border: 3px solid rgb(58, 154, 210);
+}
+
+.chat_received:after,
+.chat_received:before {
+    content: '';
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border: solid 10px;
+    top: 30%;
+    left: -20px;
+}
+
+.chat_received:after {
+    margin-top: 0px;
+    margin-left: 4px;
+    border-color: transparent #bcdcec transparent transparent;
+}
+
+.chat_received:before {
+    border-color: transparent rgb(58, 154, 210) transparent transparent;
+}
+
+.chat_received p {
+    line-height: 1.3em;
+    padding: 7px 5px 5px 15px;
+}
+
+.time_received {
+    font-size: 12px;
+    color: #A0A0A0;
+    position: relative;
+    left: 15px;
+    top: -2px;
+}
+
+/* Styles for sent messages */
+
+.name_sent {
+    float: right;
+    position: relative;
+    right: 22px;
+    top: 10px;
+}
+
+.name_sent p {
+    font-size: 15px;
+    color: #505050;
+}
+
+.chat_sent {
+    margin-top: 30px;
+    background-color: rgb(206, 178, 224);
+    border: 3px solid rgb(125, 6, 212);
+    border-radius: 5px;
+    width: 46%;
+    position: relative;
+    right: -300px;
+}
+
+.chat_sent:after,
+.chat_sent:before {
+    content: '';
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border: solid 8px;
+    top: 30%;
+    left: 270px;
+}
+
+.chat_sent:after {
+    margin-top: 0px;
+    margin-left: -3px;
+    border-color: transparent transparent transparent rgb(206, 178, 224);
+}
+
+.chat_sent:before {
+    border-color: transparent transparent transparent rgb(125, 6, 212);
+}
+
+.chat_sent p {
+    line-height: 1.3em;
+    padding: 7px 5px 5px 15px;
+}
+
+.time_sent {
+    position: relative;
+    left: 220px;
+    top: -2px;
+    font-size: 12px;
+    color: #A0A0A0;
+}

@@ -1,7 +1,12 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.dev.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/messages.css">
+    <link rel="stylesheet" href="/css/input.css">
+    <link rel="stylesheet" href="/css/emoji.css">
 </head>
 
 <body>
@@ -11,58 +16,34 @@
                 <p> Community Chat </p>
             </div>
             <div class="message_container">
-                <div class='name_sent'>
-                    <p>Brad</p>
+                <div class="name_received">
+                    <p>Jason</p>
                 </div>
-                <div id="chat_sent">
-                    <p>Test message is sent to everyone Test message is sent to everyone I love puppies s
-                    </p>
-                    <span class='time_sent'>12:59</span>
+                <div class="chat_received">
+                    <p>You are recieving a message from Antonia</p>
+                    <span class="time_received">12:34</span>
                 </div>
-                <div class='name_received'>
-                    <p>Jessy</p>
+                <div class="name_sent">
+                    <p>Jennifer</p>
                 </div>
-                <div id="chat_received">
-                    <p>Test message is received by everyone
-                    </p>
-                    <span class='time_received'>12:59</span>
+                <div class="chat_sent">
+                    <p>I'm sending this message gtyf tfftf&#x1F600</p>
+                    <span class="time_sent">12:35</span>
                 </div>
-                <div class='name_sent'>
-                    <p>Brad</p>
-                </div>
-                <div id="chat_sent">
-                    <p>Test message is sent to everyone Test message is sent to everyone I love puppies s
-                    </p>
-                    <span class='time_sent'>12:59</span>
-                </div>
-                <div class='name_received'>
-                    <p>Jessy</p>
-                </div>
-                <div id="chat_received">
-                    <p>Test message is received by everyone
-                    </p>
-                    <span class='time_received'>12:59</span>
-                </div>
-                <div class='name_sent'>
-                    <p>Brad</p>
-                </div>
-                <div id="chat_sent">
-                    <p>Test message is sent to everyone Test message is sent to everyone I love puppies s
-                    </p>
-                    <span class='time_sent'>12:59</span>
-                </div>
-                <div class='name_received'>
-                    <p>Jessy</p>
-                </div>
-                <div id="chat_received">
-                    <p>Test message is received by everyone
-                    </p>
-                    <span class='time_received'>12:59</span>
-                </div>
+                <div class="name_sent">
+                        <p>Jennifer</p>
+                    </div>
+                    <div class="chat_sent">
+                        <p>I'm sending this message gtyf tfftf&#x1F600 hghj hgg hguy g hg guhg g hguh guhgyhgbgyh b hgukguhgibubhgb hgb ygku i</p>
+                        <span class="time_sent">12:35</span>
+                    </div>
             </div>
             <div class="enter_message">
                 <input id="name" type="text" placeholder="Name..">
                 <textarea name="composedMessage" id="textarea_message" placeholder="New message..."></textarea>
+                <div id="emoji_panel">
+                    <p id="smiley">&#9786;</p>
+                </div>
             </div>
         </div>
         <div class="footer">
@@ -70,7 +51,185 @@
                 <a target="_blank" href="https://github.com/antoniab123456">Antonia Whiteley</a>
             </footer>
         </div>
+        <div class="around_emojis">
+            <div id="emoji_section">
+                <div id="emoji_list">
+                    <ul id='ul'>
+                        <li class="emoji">
+                            &#x1F600
+                        </li>
+                        <li class="emoji">
+                            &#x1F602
+                        </li>
+                        <li class="emoji">
+                            &#x1F609
+                        </li>
+                        <li class="emoji">
+                            &#x1F60A
+                        </li>
+                        <li class="emoji">
+                            &#x1F618
+                        </li>
+                        <li class="emoji">
+                            &#x1F60D
+                        </li>
+                        <li class="emoji">
+                            &#x1F60E
+                        </li>
+                        <li class="emoji">
+                            &#x1F60E
+                        </li>
+                        <li class="emoji">
+                            &#x1F642
+                        </li>
+                        <!--end of row 1-->
+                        <li class="emoji">
+                            &#x1F914
+                        </li>
+                        <li class="emoji">
+                            &#x1F928
+                        </li>
+                        <li class="emoji">
+                            &#x1F60F
+                        </li>
+                        <li class="emoji">
+                            &#x1F644
+                        </li>
+
+                        <li class="emoji">
+                            &#x1F625
+                        </li>
+                        <li class="emoji">
+                            &#x1F910
+                        </li>
+                        <li class="emoji">
+                            &#x1F62E
+                        </li>
+                        <li class="emoji">
+                            &#x1F61B
+                        </li>
+                        <li class="emoji">
+                            &#x1F61C
+                        </li>
+                        <!--end of row 2-->
+                        <li class="emoji">
+                            &#x1F61D
+                        </li>
+                        <li class="emoji">
+                            &#x1F614
+                        </li>
+                        <li class="emoji">
+                            &#x1F615
+                        </li>
+                        <li class="emoji">
+                            &#x1F643
+                        </li>
+                        <li class="emoji">
+                            &#x1F911
+                        </li>
+                        <li class="emoji">
+                            &#x1F632
+                        </li>
+                        <li class="emoji">
+                            &#x1F62D
+                        </li>
+                        <li class="emoji">
+                            &#x1F62D
+                        </li>
+                        <li class="emoji">
+                            &#x1F621
+                        </li>
+                        <!--end of row 3-->
+                        <li class="emoji">
+                            &#x1F620
+                        </li>
+                        <li class="emoji">
+                            &#x1F92A
+                        </li>
+                        <li class="emoji">
+                            &#x1F633
+                        </li>
+                        <li class="emoji">
+                            &#x1F915
+                        </li>
+                        <li class="emoji">
+                            &#x1F922
+                        </li>
+                        <li class="emoji">
+                            &#x1F92E
+                        </li>
+                        <li class="emoji">
+                            &#x1F607
+                        </li>
+                        <li class="emoji">
+                            &#x1F34B
+                        </li>
+                        <li class="emoji">
+                            &#x1F351
+                        </li>
+                        <!--end of row 4-->
+                        <li class="emoji">
+                            &#x1F3D3
+                        </li>
+                        <li class="emoji">
+                            &#x1F951
+                        </li>
+                        <li class="emoji">
+                            &#x1F6B4
+                        </li>
+                        <li class="emoji">
+                            &#x26BD
+                        </li>
+                        <li class="emoji">
+                            &#x1F3B9
+                        </li>
+                        <li class="emoji">
+                            &#x1F941
+                        </li>
+                        <li class="emoji">
+                            &#x1F3BC
+                        </li>
+                        <li class="emoji">
+                            &#x1F3A4
+                        </li>
+                        <li class="emoji">
+                            &#x1F5A5
+                        </li>
+                        <!--end of row 5-->
+                        <li class="emoji">
+                            &#x1F4BB
+                        </li>
+                        <li class="emoji">
+                            &#x1F5A8
+                        </li>
+                        <li class="emoji">
+                            &#x2328
+                        </li>
+                        <li class="emoji">
+                            &#x1F649
+                        </li>
+                        <li class="emoji">
+                            &#x1F648
+                        </li>
+                        <li class="emoji">
+                            &#x1F64A
+                        </li>
+                        <li class="emoji">
+                            &#x1F408
+                        </li>
+                        <li class="emoji">
+                            &#x1F436
+                        </li>
+                        <li class="emoji">
+                            &#x1F4A6
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
+    <script src="index.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>
