@@ -1,4 +1,5 @@
-var status = document.querySelector('#status');
+(()=>{
+    var status = document.querySelector('#status');
 var output = document.querySelector('.message_container');
 var input = document.querySelector('#textarea_message');
 var name = document.querySelector('#name');
@@ -63,5 +64,5 @@ function createOutput(d) {
     /* Displaying all the created elements in the main element */
     output.appendChild(name_el);
     output.appendChild(chat_el);
-
 }
+})();

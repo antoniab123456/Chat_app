@@ -33,7 +33,7 @@
 
 .name_received {
     position: relative;
-    top: 7%;
+    top: 6%;
     left: 7px;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .chat_received {
-    margin-top: 30px;
+    margin-top: 25px;
     background-color: #bcdcec;
     width: 46%;
     position: relative;
