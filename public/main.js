@@ -27,3 +27,4 @@ for (const emoji of emojies) {
         message.value += target.innerText;
     });
 }
+

@@ -32,10 +32,9 @@
 /* Styles for received messages */
 
 .name_received {
-    float: left;
-    position: absolute;
-    top: 20px;
-    left: 25px;
+    position: relative;
+    top: 7%;
+    left: 7px;
 }
 
 .name_received p {
@@ -76,7 +75,7 @@
 
 .chat_received p {
     line-height: 1.3em;
-    padding: 7px 5px 5px 15px;
+    padding: 15px 5px 7px 15px;
 }
 
 .time_received {

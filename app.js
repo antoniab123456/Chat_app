@@ -1,8 +1,5 @@
 const express = require('express');
 const mongo = require('mongodb').MongoClient;
-let inputData = require('./socketEvents').inputData;
-// const socketEvents = require('socketEvents');
-//client in brad's
 const socket = require('socket.io');
 
 const app = express();
@@ -17,17 +14,15 @@ app.use(express.static('public'));
 
 const io = socket(server);
 
-mongo.connect('mongodb://127.0.0.1:27017/mongochat', (err, db) => {
+mongo.connect('mongodb://127.0.0.1/mongochat', (err, db) => {
     if (err) {
         throw err;
     }
-    console.log('Mongo connected');
-
 
     io.on('connection', (socket) => {
         let chat = db.collection('chats');
 
-        exports.sendStatus = (status) => {
+        let sendStatus = (status) => {
             socket.emit('status', status);
         }
 
@@ -43,17 +38,22 @@ mongo.connect('mongodb://127.0.0.1:27017/mongochat', (err, db) => {
         socket.on('input', (data) => {
             let name = data.name;
             let message = data.message;
+            let hours = data.hours;
+            let mins = data.mins;
 
             if (name == '' || message == '') {
                 sendStatus('Please enter a name and a message');
             } else {
                 chat.insert({
-                    name,
-                    message
+                    name: name,
+                    message: message,
+                    hours: hours,
+                    mins: mins
                 }, () => {
-                    io.emit('output', [param1]);
+                    io.emit('output', [data]);
                     sendStatus({
-                        message: 'Message sent'
+                        message: 'Sent',
+                        clear: true
                     });
                 });
             }
