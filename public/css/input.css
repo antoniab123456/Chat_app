@@ -6,7 +6,8 @@
     box-sizing: border-box;
     overflow: hidden;
     position: relative;
-    top: 10px;
+    top: 0px;
+    box-shadow: 0 0 30px 15px #f5f5f5;
 }
 
 #name {

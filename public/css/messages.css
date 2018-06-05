@@ -1,8 +1,8 @@
 /* Container for all  sent and received messages */
 
 .message_container {
-    padding: 10px 5px 0px 15px;
-    height: 420px;
+    padding: 0px 5px 20px 15px;
+    height: 430px;
     overflow: hidden;
     overflow-y: scroll;
     position: relative;
@@ -75,7 +75,7 @@
 
 .chat_received p {
     line-height: 1.3em;
-    padding: 15px 5px 7px 15px;
+    padding: 10px 5px 5px 15px;
 }
 
 .time_received {
@@ -84,6 +84,7 @@
     position: relative;
     left: 15px;
     top: -2px;
+    padding-bottom: 2px;
 }
 
 /* Styles for sent messages */
