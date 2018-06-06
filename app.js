@@ -41,6 +41,7 @@ mongo.connect('mongodb://127.0.0.1/mongochat', (err, db) => {
             let hours = data.hours;
             let mins = data.mins;
 
+         
             if (name == '' || message == '') {
                 sendStatus('Please enter a name and a message');
             } else {

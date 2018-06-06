@@ -1,7 +1,7 @@
 /* Container for all  sent and received messages */
 
 .message_container {
-    padding: 0px 5px 20px 15px;
+    padding: 10px 5px 20px 15px;
     height: 430px;
     overflow: hidden;
     overflow-y: scroll;
@@ -33,7 +33,7 @@
 
 .name_received {
     position: relative;
-    top: 6%;
+    top: 5.5%;
     left: 7px;
 }
 
@@ -93,7 +93,7 @@
     float: right;
     position: relative;
     right: 22px;
-    top: 10px;
+    top: 1.5%;
 }
 
 .name_sent p {
@@ -102,7 +102,7 @@
 }
 
 .chat_sent {
-    margin-top: 30px;
+    margin-top: 25px;
     background-color: rgb(206, 178, 224);
     border: 3px solid rgb(125, 6, 212);
     border-radius: 5px;
