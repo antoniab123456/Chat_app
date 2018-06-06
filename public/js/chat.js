@@ -21,8 +21,11 @@
         socket.on('output', data => {
             if (data.length) {
                 for (var x = 0; x < data.length; x++) {
-
                     createOutput(data[x]);
+                    output.onload = toBottom();
+                    function toBottom() {
+                        output.scrollTo(0, output.scrollHeight);
+                    }
                 }
             }
 
@@ -31,8 +34,6 @@
         /* Get status from server */
         socket.on('status', (data) => {
             setStatus((typeof data === 'object') ? data.message : data);
-
-
             if (data.clear) {
                 input.value = '';
             }
@@ -80,7 +81,7 @@
             /* Displaying all the created elements in the main element */
             output.appendChild(name_el);
             output.appendChild(chat_el);
-            
+
         } else {
             /* Building purple layout on the right*/
             var chat_sent_el = document.createElement('div');
