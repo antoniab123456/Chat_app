@@ -36,7 +36,7 @@
     left: 25px;
     resize: none;
     height: 50px;
-    padding: 15px 0 0 15px;
+    padding: 5px 0 0 15px;
 }
 
 #textarea_message::placeholder {

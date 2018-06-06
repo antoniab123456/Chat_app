@@ -31,6 +31,11 @@
 
 /* Styles for received messages */
 
+.what{
+    overflow: hidden;
+    width: 100%;
+}
+
 .name_received {
     position: relative;
     top: 5.5%;
@@ -74,6 +79,7 @@
 }
 
 .chat_received p {
+    width: 95%;
     line-height: 1.3em;
     padding: 10px 5px 5px 15px;
 }
@@ -88,6 +94,7 @@
 }
 
 /* Styles for sent messages */
+
 
 .name_sent {
     float: right;

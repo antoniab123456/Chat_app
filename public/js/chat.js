@@ -76,7 +76,7 @@
             chat_el.setAttribute('class', 'chat_received');
             name_el.setAttribute('class', 'name_received');
             name_el.innerHTML = '<p>' + n + '</p>';
-            chat_el.innerHTML = '<p>' + d.message + '</p>' + '<span class="time_received">' + d.hours + ':' + d.mins + '</span>';
+            chat_el.innerHTML = '<div class="what">'+'<p>' + d.message + '</p>' +'</div>'+'<span class="time_received">' + d.hours + ':' + d.mins + '</span>';
 
             /* Displaying all the created elements in the main element */
             output.appendChild(name_el);
@@ -89,7 +89,7 @@
             chat_sent_el.setAttribute('class', 'chat_sent');
             name_sent_el.setAttribute('class', 'name_sent');
             name_sent_el.innerHTML = '<p>' + n + '</p>';
-            chat_sent_el.innerHTML = '<p>' + d.message + '</p>' + '<span class="time_sent">' + d.hours + ':' + d.mins + '</span>';
+            chat_sent_el.innerHTML = '<div class="what">'+'<p>' + d.message + '</p>'+'</div>' + '<span class="time_sent">' + d.hours + ':' + d.mins + '</span>';
 
             /* Displaying all the created elements in the main element */
             output.appendChild(name_sent_el);
