@@ -26,7 +26,6 @@ for (const emoji of emojies) {
         let target = e.target;
         message.value += target.innerText;
         toBottom();
-        
         function toBottom() {
             message.scrollTo(0, message.scrollHeight);
         }

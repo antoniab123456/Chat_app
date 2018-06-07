@@ -1,0 +1,16 @@
+#upload {
+    width: 40px;
+    height: 40px;
+    background: url('/images/upload_light.png') no-repeat;
+    position: absolute;
+    top: 65px;
+    left: 539px;
+
+}
+
+#upload:hover {
+    background: url('/images/upload_dark.png') no-repeat;
+    position: absolute;
+    top: 61px;
+    left: 540px;
+}

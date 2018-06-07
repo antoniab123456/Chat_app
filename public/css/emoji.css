@@ -2,8 +2,8 @@
 
 #emoji_panel p {
     font-family: Helvetica;
-    font-size: 30px;
-    color: #A9A9A9;
+    font-size: 32px;
+    color: rgb(194, 194, 194);
     float: right;
     position: relative;
     top: -30px;
@@ -11,7 +11,7 @@
 }
 
 #emoji_panel:hover p {
-    color: #808080;
+    color: #6d6c6c;
     cursor: pointer;
 }
 
