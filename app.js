@@ -20,8 +20,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 const routes = require('./routes/index');
 app.use('/', routes);
 
-
-
 mongo.connect('mongodb://127.0.0.1/mongochat', (err, db) => {
     if (err) {
         throw err;
