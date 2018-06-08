@@ -1,5 +1,5 @@
 # Chat_app
-Community chat application with <strong> Node js </strong> and 'vanilla' ES6 style <strong> Javascript </strong> , using socket.io library and mongodb database
+Community chat application with <strong> Node js </strong> and 'vanilla' ES6 style <strong> Javascript </strong> , using <strong> socket.io </strong> library and <strong> mongoDB </strong> database
 
 <strong>Functionality</strong>: 
 1) Sending and Receiving messages using sockets 
