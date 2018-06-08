@@ -8,27 +8,23 @@ var message = document.querySelector('#textarea_message');
 smiley.addEventListener('click', openEmojiPanel);
 window.addEventListener('click', closeEmojiPanel);
 
-function openEmojiPanel() {
+function openEmojiPanel () {
     around_emojis.style.display = "block";
     smiley.style.color = "#808080";
 }
 
-function closeEmojiPanel(e) {
+function closeEmojiPanel(e){
     if (e.target == around_emojis) {
         around_emojis.style.display = "none";
         smiley.style.color = "#A9A9A9";
     }
 }
 
-
 for (const emoji of emojies) {
     emoji.addEventListener('click', function displayEmoji(e) {
-        let target = e.target;
-        message.value += target.innerText;
+        message.value += e.target.innerText;
         toBottom();
-        function toBottom() {
-            message.scrollTo(0, message.scrollHeight);
-        }
+        let toBottom = () => { message.scrollTo(0, message.scrollHeight);}
     });
 }
 

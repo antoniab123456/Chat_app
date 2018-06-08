@@ -16,9 +16,9 @@ app.use(bodyParser.json());
 app.use(methodOverRide('_method'));
 const port = process.env.PORT || 7070;
 
-
+const time = new Date();
 const server = app.listen(port, () => {
-    console.log('Server started on port 7070');
+    console.log(`Server started ${port} on the ${time}`);
 });
 
 
@@ -43,13 +43,9 @@ const mongoFunction = (err, db) => {
 
         console.log(`connected ${socket.id}`);
        
-        socket.on('disconnect', (err) =>{
-            if(err){
-                console.log(err);
-            }
-            socket.disconnect();
+        socket.on('disconnect', () =>{
+            socket.disconnect(true);
             console.log('disconnected');
-            
         });
 
         let chat = db.collection('chats');
