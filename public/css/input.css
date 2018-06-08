@@ -15,25 +15,24 @@
     border-radius: 5px;
     outline: none;
     padding: 5px;
-    margin-top: 10px;
+    margin: 10px 0 0 25px;
     margin-left: 25px;
     width: 92%;
     padding-left: 15px;
-    font-size: 16px;
-    font-family: sans-serif;
+    font: 16px sans-serif;
 }
 
 #textarea_message {
     font-size: 16px;
     width: 92%;
     border-radius: 5px;
-    bottom: 10px;
     overflow-y: scroll;
     border: 1px solid #A9A9A9;
     outline: none;
     position: relative;
     top: 10px;
     left: 25px;
+    bottom: 10px;
     resize: none;
     height: 50px;
     padding: 15px 0 0 15px;

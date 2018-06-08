@@ -17,8 +17,9 @@
                 <p> Community Chat </p>
             </div>
             <div class="message_container">
-                <div id=status></div>
+                
             </div>
+            <div id="status"></div>
             <div class="enter_message">
                 <input id="name" type="text" placeholder="Name..">
                 <textarea name="composedMessage" id="textarea_message" placeholder="New message..."></textarea>
@@ -217,12 +218,15 @@
             <span id="close_upload_btn">&times;</span>
             <p>Click the button to upload a file</p>
             <div>
-                <button id="choose_file_btn">Choose file</button>
+                <form method="POST" action="/upload" >
+                    <input type="text" id="file_name" value="No file chosen" readonly>
+                    <input type="file" name="file" id="file" class="inputfile"  data-multiple-caption="{count} files selected" multiple/>
+                    <label id="label" for="file"><span>Choose File</span></label>
+                    <button id="submit_file_btn">Submit</button>
+                </form>
             </div>
         </div>
     </div>
-
-
     <script src="js/chat.js"></script>
     <script src="js/main.js"></script>
     <script src="js/uploads.js"></script>

@@ -15,7 +15,7 @@
 
 .chat_hat {
     width: 100%;
-    background-color: rgb(58, 154, 210);
+    background-color: #3a9ad2;
     color: #fff;
     margin: 0;
     padding-top: 30px;
@@ -54,7 +54,7 @@
     position: relative;
     left: 0px;
     border-radius: 5px;
-    border: 3px solid rgb(58, 154, 210);
+    border: 3px solid #3a9ad2;
 }
 
 .chat_received:after,
@@ -75,7 +75,7 @@
 }
 
 .chat_received:before {
-    border-color: transparent rgb(58, 154, 210) transparent transparent;
+    border-color: transparent #3a9ad2 transparent transparent;
 }
 
 .chat_received p {
@@ -111,8 +111,8 @@
 
 .chat_sent {
     margin-top: 25px;
-    background-color: rgb(206, 178, 224);
-    border: 3px solid rgb(125, 6, 212);
+    background-color: #ceb2e0;
+    border: 3px solid #7d06d4;
     border-radius: 5px;
     width: 46%;
     position: relative;
@@ -133,11 +133,11 @@
 .chat_sent:after {
     margin-top: 0px;
     margin-left: -3px;
-    border-color: transparent transparent transparent rgb(206, 178, 224);
+    border-color: transparent transparent transparent #ceb2e0;
 }
 
 .chat_sent:before {
-    border-color: transparent transparent transparent rgb(125, 6, 212);
+    border-color: transparent transparent transparent #7d06d4;
 }
 
 .chat_sent p {

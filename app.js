@@ -1,11 +1,7 @@
 const express = require('express');
-const mongo = require('mongodb').MongoClient;
 const socket = require('socket.io');
 const path = require('path');
 const mongoose = require('mongoose');
-const crypto = require('crypto');
-const multer = require('multer');
-const GridFsStorage = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
 const bodyParser = require('body-parser');
 const methodOverRide = require('method-override');
@@ -18,7 +14,7 @@ const port = process.env.PORT || 7070;
 
 const time = new Date();
 const server = app.listen(port, () => {
-    console.log(`Server started ${port} on the ${time}`);
+    console.log(`Server started ${port} at ${time.getHours()+':'+time.getMinutes()}`);
 });
 
 
@@ -35,16 +31,12 @@ const io = socket(server);
 
 const mongoFunction = (err, db) => {
 
-    if (err) {
-        throw err;
-    }
+    if (err) throw err;
 
     io.on('connection', (socket) => {
-
-        console.log(`connected ${socket.id}`);
        
         socket.on('disconnect', () =>{
-            socket.disconnect(true);
+            socket.disconnect();
             console.log('disconnected');
         });
 
@@ -57,13 +49,12 @@ const mongoFunction = (err, db) => {
         chat.find().limit(100).sort({
             _id: 1
         }).toArray((err, res) => {
-            if (err) {
-                throw err;
-            }
+            if (err) { throw err; }
             socket.emit('output', res);
         });
 
         socket.on('input', (data) => {
+            
             let name = data.name;
             let message = data.message;
             let hours = data.hours;
@@ -92,12 +83,15 @@ const mongoFunction = (err, db) => {
 
 mongoose.set('debug', true);
 
-let conn = mongoose.createConnection('mongodb://localhost:27017/mongochat', mongoFunction);
+let mongoURL = 'mongodb://localhost:27017/mongochat';
+let conn = mongoose.createConnection(mongoURL, mongoFunction);
 
 let gfs;
 
 conn.once('open', () => {
-   gfs = Grid(conn.db, mongoose.mongo);
-   gfs.collection('uploads');
+    gfs = Grid(conn.db, mongoose.mongo);
+    gfs.collection('uploads');
 });
+
+
 

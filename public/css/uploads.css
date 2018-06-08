@@ -7,7 +7,7 @@
     left: 539px;
 }
 
-#upload_btn:hover{
+#upload_btn:hover {
     background: url('/images/upload_dark.png') no-repeat;
     position: absolute;
     top: 61px;
@@ -15,15 +15,15 @@
 }
 
 #upload_window {
-    display: none;
+    /* display: none; */
     position: fixed;
-    z-index: 1;
     left: 0;
     top: 0;
     height: 100%;
     width: 100%;
+    z-index: 1;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: #00000080;
 }
 
 #upload_model {
@@ -35,20 +35,66 @@
     height: 200px;
     border-radius: 5px;
     box-sizing: border-box;
-    padding-top: 20px 0 0 10px;
     animation-name: uploadmodalopen;
     animation-duration: 1s;
 }
 
 #upload_model p {
-    margin-top: 50px;
-    margin-left: 30px;
+    margin: 50px 0 0 30px;
     font-size: 22px;
 }
 
-#choose_file_btn {
-    margin-top: 35px;
-    margin-left: 90px;
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+#file_name{
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 15px;
+    width: 62%;
+    padding: 10px;
+    margin-left: 10px;
+    outline: none;
+    border: none;
+    position: relative;
+    left: 10px;
+    top: 10.5px;
+    text-align: center;
+    float: left;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.inputfile + label {
+    display: inline-block;
+    border: none;
+    outline: none;
+    padding: 10px 10px;
+    font: 15px sans-serif;
+    background-color: #A9A9A9;
+    color: #000;
+    border-radius: 4px;
+    position: relative;
+    left: 10px;
+    top: 12px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.inputfile + label:hover {
+    background-color: #3a9ad2;
+    color: white;
+}
+
+
+#submit_file_btn {
+    margin: 26px 0 0 117px;
     padding: 12px 30px;
     color: #fff;
     background-color: #7300e6;
@@ -57,7 +103,7 @@
     outline: none;
 }
 
-#choose_file_btn:hover {
+#submit_file_btn:hover {
     cursor: pointer;
     background-color: #9347de;
 }
@@ -68,7 +114,6 @@
     font-size: 25px;
     right: 15px;
     position: relative;
-   
 }
 
 #close_upload_btn:hover {

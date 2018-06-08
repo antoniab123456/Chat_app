@@ -9,9 +9,7 @@
     let setStatus = (s) => {
         status.textContent = s;
         if (s !== statusDefault) {
-            let delay = setTimeout(() => {
-                setStatus(statusDefault);
-            }, 3000);
+            let delay = setTimeout(() => { setStatus(statusDefault); }, 3000);
         }
     }
 
@@ -29,17 +27,16 @@
         /* Get status from server */
         socket.on('status', (data) => {
             setStatus((typeof data === 'object') ? data.message : data);
-            if (data.clear) {
-                input.value = '';
-            }
+            if (data.clear) { input.value = '';}
         });
 
         input.addEventListener('keydown', e => {
             if (e.which === 13 && e.shiftKey == false) {
-                var nameArray = name.value.split(' ');
-                 var nameValue = nameArray
-                 .map(names=> (names.charAt(0).toUpperCase()+names.slice(1)))
-                 .reduce((total, nm) => total+' '+ nm);
+                /* Turn name and/or Surname to capital letters*/
+                let nameArray = name.value.split(' ');
+                let nameValue = nameArray
+                .map(names=> (names.charAt(0).toUpperCase()+names.slice(1)))
+                .reduce((total, nm) => total+' '+ nm);
 
                  console.log(nameValue);
     
@@ -49,7 +46,6 @@
                     hours: new Date().getHours(),
                     mins: getMins()
                 });
-
                 e.preventDefault();
             }
         });
