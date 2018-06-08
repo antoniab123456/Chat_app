@@ -1,5 +1,5 @@
 # Chat_app
-Community chat application with <strong color: green> Node js </strong> and vanilla ES6 style javascript, using socket.io library and mongodb database
+Community chat application with <strong color="green"> Node js </strong> and vanilla ES6 style javascript, using socket.io library and mongodb database
 
 <strong>Functionality</strong>: 
 1) Sending and Receiving messages using sockets 
