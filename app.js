@@ -1,15 +1,17 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const socket = require('socket.io');
 const path = require('path');
 const mongoose = require('mongoose');
 const Grid = require('gridfs-stream');
-const bodyParser = require('body-parser');
-const methodOverRide = require('method-override');
+const methodOverride = require('method-override');
+
 
 const app = express();
 
 app.use(bodyParser.json());
-app.use(methodOverRide('_method'));
+
+app.use(methodOverride('_method'));
 const port = process.env.PORT || 7070;
 
 const time = new Date();
@@ -92,6 +94,8 @@ conn.once('open', () => {
     gfs = Grid(conn.db, mongoose.mongo);
     gfs.collection('uploads');
 });
+
+
 
 
 
