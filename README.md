@@ -6,7 +6,7 @@ Community chat application with <strong> Node js </strong> and 'vanilla' ES6 sty
 2) Saving and displaying the messages/images to/from the mongoDB database
 3) Emoji panel - attaching emojies to the messages sent
 4) Dispaying the time of the message sent in hours:minutes
-5) Uploading images into the chat
+5) Uploading files into the chat
 6) Turnings names/surnames passed to uppercase style 
 7) Sending 'Sent' and Error message statuses
 8) Generating color of the message from the client ID
