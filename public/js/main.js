@@ -23,8 +23,8 @@ function closeEmojiPanel(e){
 for (const emoji of emojies) {
     emoji.addEventListener('click', function displayEmoji(e) {
         message.value += e.target.innerText;
+        let toBottom = function (){ message.scrollTo(0, message.scrollHeight);}
         toBottom();
-        let toBottom = () => { message.scrollTo(0, message.scrollHeight);}
     });
 }
 

@@ -1,16 +1,23 @@
 var express = require('express');
 var router = express.Router();
-const crypto = require('crypto');
-const GridFsStorage = require('multer-gridfs-storage');
-const multer = require('multer');
+
 const upload = require('../controllers/gridFS');
-const uploadsController =  require('../controllers/uploads_controller');
+const uploadsController =  require('../controllers/uploads_controller'); 
+
+
 
 
 router.get('/', (req, res) => {
     res.render('index');
 });
 
-router.post('/upload', upload.single('file'), uploadsController);
+router.post('/upload', upload.array('file', 5), uploadsController.uploads);
 
-  module.exports = router;
+router.get('/files', uploadsController.files);
+
+router.get('/files/:filename', uploadsController.filename);
+
+router.get('/images/:filename', uploadsController.images)
+
+let getFiles = require('../app').getFiles;
+module.exports = router;

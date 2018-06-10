@@ -12,6 +12,11 @@
 
 <body>
     <div class="container">
+        {{#if image}}
+        <div class="image">
+            <p>Test file upload, number of files: {{image}}</p>
+        </div>
+        {{/if}}
         <div class="chat_window">
             <div class="chat_hat">
                 <p> Community Chat </p>
@@ -22,7 +27,9 @@
             <div id="status"></div>
             <div class="enter_message">
                 <input id="name" type="text" placeholder="Name..">
-                <textarea name="composedMessage" id="textarea_message" placeholder="New message..."></textarea>
+                <div id ="textarea-wrap">
+                    <textarea name="composedMessage" id="textarea_message" placeholder="New message..."></textarea>
+                </div>
                 <div id="emoji_panel">
                     <p id="smiley">&#9786;</p>
                 </div>

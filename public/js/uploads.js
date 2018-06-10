@@ -1,6 +1,7 @@
 var upload_btn = document.querySelector('#upload_btn');
 var upload_window = document.querySelector('#upload_window');
 var close_upload_btn = document.querySelector('#close_upload_btn');
+var message = document.querySelector('#textarea_message');
 
 upload_btn.addEventListener('click', diplayUploadWindow);
 close_upload_btn.addEventListener('click', closeUploadWindow);

@@ -37,9 +37,7 @@
                 let nameValue = nameArray
                 .map(names=> (names.charAt(0).toUpperCase()+names.slice(1)))
                 .reduce((total, nm) => total+' '+ nm);
-
-                 console.log(nameValue);
-    
+                
                 socket.emit('input', {
                     name: nameValue,
                     message: input.value,

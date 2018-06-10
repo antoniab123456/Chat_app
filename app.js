@@ -5,13 +5,18 @@ const path = require('path');
 const mongoose = require('mongoose');
 const Grid = require('gridfs-stream');
 const methodOverride = require('method-override');
+const exphbs  = require('express-handlebars');
 
-
+//Initialize express
 const app = express();
 
+//BodyParser middleware
 app.use(bodyParser.json());
 
+//MethodOverride middleware
 app.use(methodOverride('_method'));
+
+//Basic Expres-server setup
 const port = process.env.PORT || 7070;
 
 const time = new Date();
@@ -19,18 +24,18 @@ const server = app.listen(port, () => {
     console.log(`Server started ${port} at ${time.getHours()+':'+time.getMinutes()}`);
 });
 
+// View Engine
+app.set('views', path.join(__dirname, 'views'));
+app.engine('handlebars', exphbs({defaultLayout:'layout'}));
+app.set('view engine', 'handlebars');
 
-
-app.set('view engine', 'ejs');
-
+//Static folder setup
 app.use(express.static(path.join(__dirname, 'public')));
 
-const routes = require('./routes/index');
-app.use('/', routes);
-
+//Initialize socket.io server
 const io = socket(server);
 
-
+//Socket and mongoDB setup 
 const mongoFunction = (err, db) => {
 
     if (err) throw err;
@@ -83,10 +88,17 @@ const mongoFunction = (err, db) => {
     });
 }
 
+//Setup mongoose(mongodb) connection
+
 mongoose.set('debug', true);
 
 let mongoURL = 'mongodb://localhost:27017/mongochat';
+
+//Execute mongoFunc when the connection is established
 let conn = mongoose.createConnection(mongoURL, mongoFunction);
+
+
+//GridFs collection Setup 
 
 let gfs;
 
@@ -95,6 +107,24 @@ conn.once('open', () => {
     gfs.collection('uploads');
 });
 
+//Gfs functions to use in the uploads_controller 
+
+exports.getFiles = (cb) => {
+    gfs.files.find().toArray(cb);
+}
+
+exports.getFilename = (param, cb) => {
+    gfs.files.findOne(param, cb);
+}
+
+exports.readStream = (file_name, response) => {
+    let readstream = gfs.createReadStream(file_name);
+    readstream.pipe(response);
+}
+
+//Setup routes
+const routes = require('./routes/index');
+app.use('/', routes);
 
 
 

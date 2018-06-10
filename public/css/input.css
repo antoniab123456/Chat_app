@@ -15,27 +15,35 @@
     border-radius: 5px;
     outline: none;
     padding: 5px;
-    margin: 10px 0 0 25px;
+    margin: 15px 0 0 25px;
     margin-left: 25px;
     width: 92%;
     padding-left: 15px;
     font: 16px sans-serif;
 }
 
+#textarea-wrap{
+    overflow: hidden;
+    width: 92%;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #A9A9A9;
+    background-color: #fff;
+    position: relative;
+    left: 24px;
+    top: 10px;
+
+}
+
 #textarea_message {
     font-size: 16px;
-    width: 92%;
-    border-radius: 5px;
     overflow-y: scroll;
-    border: 1px solid #A9A9A9;
     outline: none;
-    position: relative;
-    top: 10px;
-    left: 25px;
-    bottom: 10px;
     resize: none;
+    width: 85%;
     height: 50px;
     padding: 15px 0 0 15px;
+    border: none;
 }
 
 #textarea_message::placeholder {

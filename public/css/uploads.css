@@ -3,14 +3,14 @@
     height: 40px;
     background: url('/images/upload_light.png') no-repeat;
     position: absolute;
-    top: 65px;
+    top: 67px;
     left: 539px;
 }
 
 #upload_btn:hover {
     background: url('/images/upload_dark.png') no-repeat;
     position: absolute;
-    top: 61px;
+    top: 63px;
     left: 540px;
 }
 
@@ -119,6 +119,12 @@
 #close_upload_btn:hover {
     color: #696969;
     cursor: pointer;
+}
+
+.image{
+    background-color: #fff;
+    width: 100px;
+    height: 100px;
 }
 
 @keyframes uploadmodalopen {
