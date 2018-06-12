@@ -11,113 +11,125 @@
 </head>
 
 <body>
-    <div class="container">
-        {{#if image}}
-        <div class="image">
-            <p>Test file upload, number of files: {{image}}</p>
-        </div>
-        {{/if}}
-        <div class="chat_window">
-            <div class="chat_hat">
-                <p> Community Chat </p>
+     {{#if files}}
+        <div class="file">
+            {{#each files}} 
+                 {{#if isImage}}
+                      <img src="images/{{filename}}">
+                 {{/if}}
+            {{/each}}
+        </div>    
+    {{/if}}  
+     {{#if error}}
+            <div id="error">
+                <p>{{error}}</p>
             </div>
-            <div class="message_container">
-
-            </div>
-            <div id="status"></div>
-            <div class="enter_message">
-                <input id="name" type="text" placeholder="Name..">
-                <div id ="textarea-wrap">
-                    <textarea name="composedMessage" id="textarea_message" placeholder="New message..."></textarea>
-                </div>
-                <div id="emoji_panel">
-                    <p id="smiley">&#9786;</p>
-                </div>
-                <div id="upload_btn">
-                </div>
-            </div>
+    {{/if}}   
+        
+    <div class="chat_window">  
+        <div class="chat_hat">
+            <p> Community Chat </p>
         </div>
-        <div class="footer">
-            <footer> &copy; 2018 Community Chat by
-                <a target="_blank" href="https://github.com/antoniab123456">Antonia Whiteley</a>
-            </footer>
-        </div>
-        <div class="around_emojis">
-            <div id="emoji_section">
-                <div id="emoji_list">
-                    <ul id='ul'>
-                        <li class="emoji"> &#x1F600 </li>
-                        <li class="emoji"> &#x1F602 </li>
-                        <li class="emoji">&#x1F609 </li>
-                        <li class="emoji"> &#x1F60A </li>
-                        <li class="emoji"> &#x1F618 </li>
-                        <li class="emoji"> &#x1F60D </li>
-                        <li class="emoji"> &#x1F60E </li>
-                        <li class="emoji"> &#x1F60E </li>
-                        <li class="emoji"> &#x1F642 </li>
-                        <!--end of row 1-->
-                        <li class="emoji"> &#x1F914 </li>
-                        <li class="emoji"> &#x1F928 </li>
-                        <li class="emoji"> &#x1F60F </li>
-                        <li class="emoji"> &#x1F644 </li>
-                        <li class="emoji"> &#x1F625 </li>
-                        <li class="emoji"> &#x1F910 </li>
-                        <li class="emoji"> &#x1F62E </li>
-                        <li class="emoji"> &#x1F61B </li>
-                        <li class="emoji"> &#x1F61C </li>
-                        <!--end of row 2-->
-                        <li class="emoji"> &#x1F61D </li>
-                        <li class="emoji"> &#x1F614 </li>
-                        <li class="emoji"> &#x1F615 </li>
-                        <li class="emoji"> &#x1F643 </li>
-                        <li class="emoji"> &#x1F911 </li>
-                        <li class="emoji"> &#x1F632 </li>
-                        <li class="emoji"> &#x1F62D </li>
-                        <li class="emoji"> &#x1F62D </li>
-                        <li class="emoji"> &#x1F621 </li>
-                        <!--end of row 3-->
-                        <li class="emoji"> &#x1F620 </li>
-                        <li class="emoji"> &#x1F92A </li>
-                        <li class="emoji"> &#x1F633 </li>
-                        <li class="emoji"> &#x1F915 </li>
-                        <li class="emoji"> &#x1F922 </li>
-                        <li class="emoji"> &#x1F92E </li>
-                        <li class="emoji"> &#x1F607 </li>
-                        <li class="emoji"> &#x1F34B </li>
-                        <li class="emoji"> &#x1F351 </li>
-                        <!--end of row 4-->
-                        <li class="emoji"> &#x1F3D3 </li>
-                        <li class="emoji"> &#x1F951 </li>
-                        <li class="emoji"> &#x1F6B4 </li>
-                        <li class="emoji"> &#x26BD </li>
-                        <li class="emoji"> &#x1F3B9 </li>
-                        <li class="emoji"> &#x1F941 </li>
-                        <li class="emoji"> &#x1F3BC </li>
-                        <li class="emoji"> &#x1F3A4 </li>
-                        <li class="emoji"> &#x1F5A5 </li>
-                        <!--end of row 5-->
-                        <li class="emoji"> &#x1F4BB </li>
-                        <li class="emoji"> &#x1F5A8 </li>
-                        <li class="emoji"> &#x2328 </li>
-                        <li class="emoji"> &#x1F649 </li>
-                        <li class="emoji"> &#x1F648 </li>
-                        <li class="emoji"> &#x1F64A </li>
-                        <li class="emoji"> &#x1F408 </li>
-                        <li class="emoji"> &#x1F436 </li>
-                        <li class="emoji"> &#x1F4A6 </li>
-                    </ul>
-                </div>
+        <div class="message_container"></div>
+        <div id="status"></div>
+           
+        <div class="enter_message">
+            <input id="name" type="text" placeholder="Name..">
+            <div id="textarea-wrap">
+                <textarea name="composedMessage" id="textarea_message" placeholder="New message..."></textarea>
+            </div>
+            <div id="emoji_panel">
+                <p id="smiley">&#9786;</p>
+            </div>
+            <div id="upload_btn"></div>
+            <div id="image_main_div">
             </div>
         </div>
     </div>
+    <div class="footer">
+        <footer> &copy; 2018 Community Chat by
+            <a target="_blank" href="https://github.com/antoniab123456">Antonia Whiteley</a>
+        </footer>
+    </div>
+    <div class="around_emojis">
+         <div id="emoji_section">
+            <div id="emoji_list">
+                <ul id='ul'>
+                    <li class="emoji"> &#x1F600 </li>
+                    <li class="emoji"> &#x1F602 </li>
+                    <li class="emoji">&#x1F609 </li>
+                    <li class="emoji"> &#x1F60A </li>
+                    <li class="emoji"> &#x1F618 </li>
+                    <li class="emoji"> &#x1F60D </li>
+                    <li class="emoji"> &#x1F60E </li>
+                    <li class="emoji"> &#x1F60E </li>
+                    <li class="emoji"> &#x1F642 </li>
+                    <!--end of row 1-->
+                    <li class="emoji"> &#x1F914 </li>
+                    <li class="emoji"> &#x1F928 </li>
+                    <li class="emoji"> &#x1F60F </li>
+                    <li class="emoji"> &#x1F644 </li>
+                    <li class="emoji"> &#x1F625 </li>
+                    <li class="emoji"> &#x1F910 </li>
+                    <li class="emoji"> &#x1F62E </li>
+                    <li class="emoji"> &#x1F61B </li>
+                    <li class="emoji"> &#x1F61C </li>
+                    <!--end of row 2-->
+                    <li class="emoji"> &#x1F61D </li>
+                    <li class="emoji"> &#x1F614 </li>
+                    <li class="emoji"> &#x1F615 </li>
+                    <li class="emoji"> &#x1F643 </li>
+                    <li class="emoji"> &#x1F911 </li>
+                    <li class="emoji"> &#x1F632 </li>
+                    <li class="emoji"> &#x1F62D </li>
+                    <li class="emoji"> &#x1F62D </li>
+                    <li class="emoji"> &#x1F621 </li>
+                    <!--end of row 3-->
+                    <li class="emoji"> &#x1F620 </li>
+                    <li class="emoji"> &#x1F92A </li>
+                    <li class="emoji"> &#x1F633 </li>
+                    <li class="emoji"> &#x1F915 </li>
+                    <li class="emoji"> &#x1F922 </li>
+                    <li class="emoji"> &#x1F92E </li>
+                    <li class="emoji"> &#x1F607 </li>
+                    <li class="emoji"> &#x1F34B </li>
+                    <li class="emoji"> &#x1F351 </li>
+                    <!--end of row 4-->
+                    <li class="emoji"> &#x1F3D3 </li>
+                    <li class="emoji"> &#x1F951 </li>
+                    <li class="emoji"> &#x1F6B4 </li>
+                    <li class="emoji"> &#x26BD </li>
+                    <li class="emoji"> &#x1F3B9 </li>
+                    <li class="emoji"> &#x1F941 </li>
+                    <li class="emoji"> &#x1F3BC </li>
+                    <li class="emoji"> &#x1F3A4 </li>
+                    <li class="emoji"> &#x1F5A5 </li>
+                    <!--end of row 5-->
+                    <li class="emoji"> &#x1F4BB </li>
+                    <li class="emoji"> &#x1F5A8 </li>
+                    <li class="emoji"> &#x2328 </li>
+                    <li class="emoji"> &#x1F649 </li>
+                    <li class="emoji"> &#x1F648 </li>
+                    <li class="emoji"> &#x1F64A </li>
+                    <li class="emoji"> &#x1F408 </li>
+                    <li class="emoji"> &#x1F436 </li>
+                    <li class="emoji"> &#x1F4A6 </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <div id="upload_window">
         <div id="upload_model">
             <span id="close_upload_btn">&times;</span>
-            <p>Click the button to upload a file</p>
+            <div class="model_header">
+                <p id="header">Click the button to upload a file</p>
+            </div>
+            <div class="more_files_error"><p>More than 5 files uploaded!</p></div>
             <div>
-                <form method="post" action="/upload" enctype="multipart/form-data">
+                <form id="submit_file"{{!-- method="post" action="/upload" enctype="multipart/form-data" --}}>
                     <input type="text" id="file_name" value="No file chosen" readonly>
-                    <input type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} files selected" multiple/>
+                    <input type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} files selected" onchange="imagePreview.call(this)" multiple/>
                     <label id="label" for="file">
                         <span>Choose File</span>
                     </label>
@@ -126,6 +138,7 @@
             </div>
         </div>
     </div>
+    
     <script src="js/chat.js"></script>
     <script src="js/main.js"></script>
     <script src="js/uploads.js"></script>

@@ -64,7 +64,7 @@
         let generate = codeArray.reduce((total, num) => total + num, 0).toString().slice(0, 3);
         let id = parseInt(generate);
         /* Building blue layout*/
-        if (id <= 100 || id >= 500) {
+        if (id <= 150 || id >= 500) {
             let msgDiv = el('div');
             let nameDiv = el('div');
             attr(msgDiv, 'chat_received');

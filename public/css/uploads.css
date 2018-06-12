@@ -34,26 +34,25 @@
     overflow: hidden;
     height: 200px;
     border-radius: 5px;
-    box-sizing: border-box;
     animation-name: uploadmodalopen;
     animation-duration: 1s;
 }
 
-#upload_model p {
+.model_header p {
     margin: 50px 0 0 30px;
     font-size: 22px;
 }
 
 .inputfile {
-	width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
 }
 
-#file_name{
+#file_name {
     background-color: #fff;
     border-radius: 5px;
     font-size: 15px;
@@ -71,7 +70,7 @@
     border-top-right-radius: 0;
 }
 
-.inputfile + label {
+.inputfile+label {
     display: inline-block;
     border: none;
     outline: none;
@@ -87,11 +86,10 @@
     border-top-left-radius: 0;
 }
 
-.inputfile + label:hover {
+.inputfile+label:hover {
     background-color: #3a9ad2;
     color: white;
 }
-
 
 #submit_file_btn {
     margin: 26px 0 0 117px;
@@ -121,10 +119,60 @@
     cursor: pointer;
 }
 
-.image{
-    background-color: #fff;
-    width: 100px;
-    height: 100px;
+.more_files_error {
+    display: none;
+    color: red;
+    position: relative;
+    left: 70px;
+    top: 5px;
+}
+
+.more_files_error p {
+    font-size: 16px;
+}
+
+#image_main_div{
+    overflow-x: scroll;
+    display: inline-block;
+    position: relative; 
+    top: 15px;
+    left: 30px;
+}
+
+
+#image_preview {
+    position: relative;
+
+    height: 50px;
+    width: 49px;
+    margin-right: 10px;
+    border: 1px solid #A9A9A9;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+#delete_image {
+    color: #A9A9A9;
+    background-color: #F5F5F5;
+    border-radius: 20px;
+    width: 8px;
+    padding: 0 2px;
+}
+
+#delete_image p {
+    font-size: 10px;
+    position: relative;
+    left: 1px;
+    top: -0.6px;
+}
+
+#delete_image:hover {
+    cursor: pointer;
+    color: #000;
+}
+
+img {
+    width: 100%;
 }
 
 @keyframes uploadmodalopen {

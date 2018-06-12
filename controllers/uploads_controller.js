@@ -3,10 +3,31 @@ let getFilename = require('../app').getFilename;
 let readStream = require('../app').readStream;
 
 const uploadsController = {
-    uploads: (req, res) => {
-        image = req.files.length;
-        res.render('index', { image: image })
+    main: (req, res) => {
+        res.render('index');
     },
+    /* (req, res) => {
+        getFiles((err, files) => { 
+            if (!files || files.length === 0) {
+                error = "No file was chosen";
+                res.render('index', { files: false, error: error});
+              } else {
+                files.map(file => {
+                  if (
+                    file.contentType === 'image/jpeg' ||
+                    file.contentType === 'image/png'
+                  ) {
+                    file.isImage = true;
+                  } else {
+                    file.isImage = false;
+                  }
+                });
+                res.render('index', { files: files });
+              }          
+        }); */
+    // uploads: (req, res) => {
+    //     res.redirect('/');
+    // },
     files: (req, res) => {
         getFiles((err, files) => {
             if (!files || files.length === 0) {
@@ -45,9 +66,10 @@ const uploadsController = {
                     err: 'Not an image'
                 });
             }
-        });
-    },
-}
+        }); 
+    }
+}    
+
 
 module.exports = uploadsController;
 
