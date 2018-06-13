@@ -129,7 +129,7 @@
             <div>
                 <form id="submit_file"{{!-- method="post" action="/upload" enctype="multipart/form-data" --}}>
                     <input type="text" id="file_name" value="No file chosen" readonly>
-                    <input type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} files selected" onchange="imagePreview.call(this)" multiple/>
+                    <input type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} files selected"  onchange="previewFiles()" {{!-- onchange="imagePreview.call(this) --}}" multiple/>
                     <label id="label" for="file">
                         <span>Choose File</span>
                     </label>

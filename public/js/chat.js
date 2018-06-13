@@ -57,7 +57,7 @@
        let attr = (variab, nameCl) => { return variab.setAttribute('class', nameCl);}
        let html = (variab, smth) => { return variab.innerHTML = smth; }
 
-        d.name !== null ? chars = d.name.split(''): id = 100;
+        d.name !== null ? chars = d.name.split('') : id = 100;
 
         let codeArray = chars.map(char => char.charCodeAt(0));
 

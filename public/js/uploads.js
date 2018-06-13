@@ -9,7 +9,6 @@ var upload_btn = select('#upload_btn'),
     more_files_error = select('.more_files_error'),
     file_name = select('#file_name'),
     header = select('#header'),
-    image_preview = select('#image_preview'),
     submit_file_btn = select('#submit_file_btn'),
     chat_window = select('.chat_window'),
     submit_file = select('#submit_file'),
@@ -22,7 +21,7 @@ var upload_btn = select('#upload_btn'),
 
 listen(upload_btn, 'click', diplayUploadWindow);
 listen(close_upload_btn, 'click', closeUploadWindow);
-listen(submit_file, 'submit', showImages);
+listen(submit_file, 'submit', showAndDeleteImages);
 
 function diplayUploadWindow() {
     upload_window.style.display = "block";
@@ -35,8 +34,6 @@ function closeUploadWindow() {
 var inputs = document.querySelectorAll('.inputfile');
 
 Array.prototype.forEach.call(inputs, function (input) {
-
-    var labelVal = label.innerHTML;
 
     input.addEventListener('change', function (e) {
         var fileName = '';
@@ -80,59 +77,92 @@ Array.prototype.forEach.call(inputs, function (input) {
 
 window.onload = function(){
     localStorage.removeItem('image_src');
-}
+} 
 
-function imagePreview() {  
-    if (localStorage.getItem('image_src') === null) {
-        if(this.files && this.files[0]) {
-            let imgObj = new FileReader();
-            imgObj.onload = function (e) {
+function previewFiles() {
 
-            let urlObject = {
-                src: e.target.result
-            }
+    var files  = select('input[type=file]').files;
 
-            urlArray = [];
-            urlArray.push(urlObject);
-            localStorage.setItem('image_src', JSON.stringify(urlArray));
-
-            }
-
-            imgObj.readAsDataURL(this.files[0]);
-        }
+    function readAndPreview(file) {
+        var reader = new FileReader();
         
-    } else {
-        let imgObj = new FileReader();
-        imgObj.onload = function (e) {
+        reader.addEventListener("load", function () {
+
             let urlObject = {
-                src: e.target.result
+                src: this.result
             }
 
-            var fetchedArray = JSON.parse(localStorage.getItem('image_src'));
-            
-            fetchedArray.push(urlObject);
+            if(localStorage.getItem('image_src') === null){    
 
-            localStorage.setItem('image_src', JSON.stringify(fetchedArray));
+                urlArray = [];
 
-        }
+                urlArray.push(urlObject);
+                
+                localStorage.setItem('image_src', JSON.stringify(urlArray));
 
-        imgObj.readAsDataURL(this.files[0]);
+            } else {
+
+                var fetchedArray = JSON.parse(localStorage.getItem('image_src'));
+    
+                fetchedArray.push(urlObject);
+    
+                localStorage.setItem('image_src', JSON.stringify(fetchedArray));
+
+            }
+
+        }, false);
+         reader.readAsDataURL(file);
+           
     }
+
+    if (files) {
+        [].forEach.call(files, readAndPreview);
+    }
+  
 }
 
+function showAndDeleteImages (e) {
+    function showImages() {
 
- 
-function showImages (e) {
-    upload_window.style.display = "none";
-    var fetchedArray = JSON.parse(localStorage.getItem('image_src'));
+        upload_window.style.display = "none";
+        var fetchedArray = JSON.parse(localStorage.getItem('image_src'));
 
-    image_main_div.innerHTML = '';
-  
-    fetchedArray.forEach(item => image_main_div.innerHTML += '<img src="'+ item.src+'" id="image_preview">');
+        image_main_div.innerHTML = '';
 
-    chat_window.style.height = "670px";
-    enter_message.style.height = "200px";
-    footer.style.top = '750px';
+        fetchedArray.forEach(item => {
+            let image_preview = document.createElement('div');
+            var delete_image = document.createElement('div');
+            delete_image.setAttribute('id', 'delete_image');
+            delete_image.innerHTML = '<p>'+'&times;'+'</p>';    
+            delete_image.onclick = deleteImages;
+            image_preview.setAttribute('id', 'image_preview');
+            image_preview.style.backgroundImage = "url(" + item.src + ")";
+            image_preview.appendChild(delete_image);
+            image_main_div.appendChild(image_preview);
+            
+            function deleteImages () {
+                image_preview.style.display = 'none';
 
-    e.preventDefault();
+                var image_src = JSON.parse(localStorage.getItem('image_src'));
+
+                if(image_src.length === 1){
+                    chat_window.style.height = "630px";
+                }
+
+                for (var i = 0; i < image_src.length; i++) {
+                    if (image_src[i].src == item.src) {
+                        image_src.splice(i, 1);
+                    }
+                }
+
+                localStorage.setItem('image_src', JSON.stringify(image_src));
+            } 
+        });
+        
+        chat_window.style.height = "670px";
+        enter_message.style.height = "200px";
+        footer.style.top = '750px';
+        e.preventDefault();
+    }
+    showImages();
 }

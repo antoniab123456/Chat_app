@@ -133,7 +133,6 @@
 
 #image_main_div{
     overflow-x: scroll;
-    display: inline-block;
     position: relative; 
     top: 15px;
     left: 30px;
@@ -142,33 +141,42 @@
 
 #image_preview {
     position: relative;
-
-    height: 50px;
-    width: 49px;
+    float: left;
+    width: 10%;
+    height: 26%;
     margin-right: 10px;
     border: 1px solid #A9A9A9;
     overflow: hidden;
     border-radius: 5px;
+    background-position: center center;
+    background-size: 70px;
 }
 
 #delete_image {
-    color: #A9A9A9;
-    background-color: #F5F5F5;
+    color: #f5f5f5;
     border-radius: 20px;
-    width: 8px;
-    padding: 0 2px;
+    border: 0.5px solid #f5f5f5;
+    width: 10px;
+    padding: 1px 3px;
+    background-color: rgba(0, 0, 0, 0.3);
+    float: right;
+    position: relative;
+    top: 1.5px;
+    right: 1.5px;
 }
 
 #delete_image p {
-    font-size: 10px;
+    font-size: 12px;
     position: relative;
-    left: 1px;
-    top: -0.6px;
+    left: 0.8px;
+    top: -0.3px;
 }
 
 #delete_image:hover {
     cursor: pointer;
-    color: #000;
+    color: 	#000;
+    border: 0.5px solid	#484848;
+    background-color:  rgba(255, 251, 251, 0.3);
 }
 
 img {
