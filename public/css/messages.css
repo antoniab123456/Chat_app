@@ -1,7 +1,7 @@
 /* Container for all  sent and received messages */
 
 .message_container {
-    padding: 10px 5px 20px 15px;
+    padding: 10px 5px 30px 15px;
     height: 430px;
     overflow: hidden;
     overflow-y: scroll;
@@ -30,11 +30,6 @@
 }
 
 /* Styles for received messages */
-
-.what{
-    overflow: hidden;
-    width: 100%;
-}
 
 .name_received {
     position: relative;
@@ -152,4 +147,11 @@
     top: -2px;
     font-size: 12px;
     color: #A0A0A0;
+}
+
+#status{
+  position: relative;
+  top: -25px;
+  left: 40%;
+  font-size: 13px;
 }

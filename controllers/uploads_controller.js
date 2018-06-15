@@ -5,9 +5,7 @@ let readStream = require('../app').readStream;
 const uploadsController = {
     main: (req, res) => {
         res.render('index');
-    },
-    /* (req, res) => {
-        getFiles((err, files) => { 
+      /*   getFiles((err, files) => { 
             if (!files || files.length === 0) {
                 error = "No file was chosen";
                 res.render('index', { files: false, error: error});
@@ -22,12 +20,17 @@ const uploadsController = {
                     file.isImage = false;
                   }
                 });
-                res.render('index', { files: files });
-              }          
-        }); */
-    // uploads: (req, res) => {
-    //     res.redirect('/');
-    // },
+                res.render('index', { files: files });   
+            }
+        });    */
+    },
+    uploads: (req, res) => {
+        req.files.forEach(file => {
+            let eachFileName_url = 'http://localhost:7070/images/'+file.filename;
+            res.send(eachFileName_url);
+        });
+
+    },          
     files: (req, res) => {
         getFiles((err, files) => {
             if (!files || files.length === 0) {

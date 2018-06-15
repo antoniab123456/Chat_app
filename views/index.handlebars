@@ -11,28 +11,14 @@
 </head>
 
 <body>
-     {{#if files}}
-        <div class="file">
-            {{#each files}} 
-                 {{#if isImage}}
-                      <img src="images/{{filename}}">
-                 {{/if}}
-            {{/each}}
-        </div>    
-    {{/if}}  
-     {{#if error}}
-            <div id="error">
-                <p>{{error}}</p>
-            </div>
-    {{/if}}   
-        
     <div class="chat_window">  
         <div class="chat_hat">
             <p> Community Chat </p>
         </div>
-        <div class="message_container"></div>
-        <div id="status"></div>
-           
+        <div class="message_container">
+        </div>
+        <div></div>
+        <div id="status"></div> 
         <div class="enter_message">
             <input id="name" type="text" placeholder="Name..">
             <div id="textarea-wrap">
@@ -125,16 +111,16 @@
             <div class="model_header">
                 <p id="header">Click the button to upload a file</p>
             </div>
-            <div class="more_files_error"><p>More than 5 files uploaded!</p></div>
+            <div class="more_files_error"><p>More than 10 files uploaded!</p></div>
             <div>
-                <form id="submit_file"{{!-- method="post" action="/upload" enctype="multipart/form-data" --}}>
+                <form id="submit_file">
                     <input type="text" id="file_name" value="No file chosen" readonly>
-                    <input type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} files selected"  onchange="previewFiles()" {{!-- onchange="imagePreview.call(this) --}}" multiple/>
+                    <input type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} files selected"  onchange="previewFiles()" multiple/>
                     <label id="label" for="file">
                         <span>Choose File</span>
                     </label>
-                    <input type="submit" value="Submit" id="submit_file_btn">
                 </form>
+                <button id="submit_file_btn">Submit</button>
             </div>
         </div>
     </div>

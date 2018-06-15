@@ -41,7 +41,6 @@ const mongoFunction = (err, db) => {
     if (err) throw err;
 
     io.on('connection', (socket) => {
-       
         socket.on('disconnect', () =>{
             socket.disconnect();
             console.log('disconnected');
@@ -65,8 +64,9 @@ const mongoFunction = (err, db) => {
             let name = data.name;
             let message = data.message;
             let hours = data.hours;
-            let mins = data.mins;
-
+            let mins = data.mins;/* 
+            let image = data.image; */
+        
 
             if (name == '' || message == '') {
                 sendStatus('Please enter a name and a message');
@@ -75,7 +75,8 @@ const mongoFunction = (err, db) => {
                     name: name,
                     message: message,
                     hours: hours,
-                    mins: mins
+                    mins: mins/* ,
+                    image: image */
                 }, () => {
                     io.sockets.emit('output', [data]);
                     sendStatus({

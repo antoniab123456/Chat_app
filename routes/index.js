@@ -5,7 +5,7 @@ const uploadsController =  require('../controllers/uploads_controller');
 
 router.get('/', uploadsController.main);
 
-// router.post('/upload', upload.array('file'), uploadsController.uploads);
+router.post('/uploads', upload.array('image'), uploadsController.uploads);
 
 router.get('/files', uploadsController.files);
 
