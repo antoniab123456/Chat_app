@@ -47,7 +47,7 @@ Array.prototype.forEach.call(inputs, function (input) {
         var fileName = '';
 
         /* If more than nine files are selected, throw error */
-        if (this.files.length >= 9) {
+        if (this.files.length >= 10) {
 
             more_files_error.style.display = "block";
             file_name.style.border = '1px solid red';
@@ -93,63 +93,74 @@ function previewFiles() {
 
     let readerArray = [];
     var input_files = select('input[type=file]').files;
-
+  
     function readAndPreview(file) {
+        if (input_files.length < 10){
+            var reader = new FileReader();
+            
+            reader.addEventListener("load", () => {
 
-        var reader = new FileReader();
+                listen(submit_file_btn, 'click', function showImages() {
+                    upload_window.style.display = "none";
 
-        reader.addEventListener("load", () => {
+                    obj = {
+                        readResult: reader.result,
+                        size: file.size
+                    }
 
-            listen(submit_file_btn, 'click', function showImages() {
-                upload_window.style.display = "none";
+                    readerArray.push(obj);
 
-                obj = {
-                    readResult: reader.result,
-                    size: file.size
-                }
-                readerArray.push(obj);
 
-                image_main_div.innerHTML = '';
-                readerArray.forEach(img => {
+
+                    image_main_div.innerHTML = '';
+                    readerArray.forEach(img => {
+                        
+                        let image_preview = el('div'),
+                        delete_image = el('div');
+                        attr(image_preview, 'image_preview');
+                        attr( delete_image, 'delete_image');
+
+                        html(delete_image, '<p>' + '&times;' + '</p>');
+                        delete_image.onclick = deleteImages;
+
+                        image_preview.style.background = "url(" + img.readResult + ") no-repeat center center";
+                        image_preview.style.backgroundSize = 'cover';
+
+                        append(image_preview, delete_image);
+                        append(image_main_div, image_preview);
                     
-                    let image_preview = el('div'),
-                    delete_image = el('div');
-                    attr(image_preview, 'image_preview');
-                    attr( delete_image, 'delete_image');
+                        chat_window.style.height = "670px";
+                        enter_message.style.height = "200px";
+                        footer.style.top = '750px';
 
-                    html(delete_image, '<p>' + '&times;' + '</p>');
-                    delete_image.onclick = deleteImages;
 
-                    image_preview.style.background = "url(" + img.readResult + ") no-repeat center center";
-                    image_preview.style.backgroundSize = 'cover';
+                        function deleteImages() {
+                            for (var i = 0; i < readerArray.length; i++) {
+                                if (readerArray[i].size == img.size) {
+                                    readerArray.splice(i, 1);
+                                    image_preview.style.display = "none";
+                                }
+                            }
 
-                    append(image_preview, delete_image);
-                    append(image_main_div, image_preview);
-                   
-                    chat_window.style.height = "670px";
-                    enter_message.style.height = "200px";
-                    footer.style.top = '750px';
-
-                    function deleteImages() {
-                        for (var i = 0; i < readerArray.length; i++) {
-                            if (readerArray[i].size == img.size) {
-                                readerArray.splice(i, 1);
-                                image_preview.style.display = "none";
+                            if (readerArray.length < 1) {
+                                chat_window.style.height = "620px";
+                                footer.style.top = '730px';
                             }
                         }
-
-                        if (readerArray.length < 1) {
-                            chat_window.style.height = "620px";
-                            footer.style.top = '730px';
-                        }
-                    }
+                    });
                 });
+
+            }, false);
+            reader.readAsDataURL(file);
+
+        } else {
+            listen(submit_file_btn, 'click', function() {
+                upload_window.style.display = "none";  
+                image_main_div.innerHTML = '';
+                chat_window.style.height = "620px";
             });
-
-        }, false);
-        reader.readAsDataURL(file);
+        }
     }
-
     /* For each of the files uploaded fire back readAndPreview function */
     if (input_files) {
         [].forEach.call(input_files, readAndPreview);
