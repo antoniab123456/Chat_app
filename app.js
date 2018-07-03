@@ -1,14 +1,16 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const socket = require('socket.io');
-const path = require('path');
-const mongoose = require('mongoose');
-const Grid = require('gridfs-stream');
-const methodOverride = require('method-override');
-const exphbs  = require('express-handlebars');
+const express = require('express'),
+bodyParser = require('body-parser'),
+socket = require('socket.io'),
+ path = require('path'),
+ mongoose = require('mongoose'),
+ Grid = require('gridfs-stream'),
+ methodOverride = require('method-override'),
+ exphbs  = require('express-handlebars'),
+ favicon = require('serve-favicon');
 
 //Initialize express
 const app = express();
+app.use(favicon(path.join(__dirname, 'public', 'favicon.jpeg')))
 
 //BodyParser middleware
 app.use(bodyParser.json());
@@ -58,34 +60,34 @@ const mongoFunction = (err, db) => {
             if (err) { throw err; }
             socket.emit('output', res);
         });
-
+         
+       
         socket.on('input', (data) => {
-            
-            let name = data.name;
-            let message = data.message;
-            let hours = data.hours;
-            let mins = data.mins;/* 
-            let image = data.image; */
-        
+                let name = data.name;
+                let message = data.message;
+                let hours = data.hours;
+                let mins = data.mins;
+                let image = data.image;
 
-            if (name == '' || message == '') {
-                sendStatus('Please enter a name and a message');
-            } else {
-                chat.insert({
-                    name: name,
-                    message: message,
-                    hours: hours,
-                    mins: mins/* ,
-                    image: image */
-                }, () => {
-                    io.sockets.emit('output', [data]);
-                    sendStatus({
-                        message: 'Sent',
-                        clear: true
+                if (name == '' || message == '') {
+                    sendStatus('Please enter a name and a message');
+                } else {
+                    chat.insert({
+                        name: name,
+                        message: message,
+                        hours: hours,
+                        mins: mins,
+                        image: image
+                    }, () => {
+                        io.sockets.emit('output', [data]);
+                        sendStatus({
+                            message: 'Sent',
+                            clear: true
+                        });
                     });
-                });
-            }
+                }
         });
+
     });
 }
 

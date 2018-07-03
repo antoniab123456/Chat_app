@@ -50,6 +50,8 @@
     left: 0px;
     border-radius: 5px;
     border: 3px solid #3a9ad2;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 .chat_received:after,
@@ -74,9 +76,8 @@
 }
 
 .chat_received p {
-    width: 95%;
     line-height: 1.3em;
-    padding: 10px 5px 5px 15px;
+    padding: 10px 5px 3px 15px;
     font-size: 15px;
 }
 
@@ -85,12 +86,10 @@
     color: #A0A0A0;
     position: relative;
     left: 15px;
-    top: -2px;
     padding-bottom: 2px;
 }
 
 /* Styles for sent messages */
-
 
 .name_sent {
     float: right;
@@ -112,6 +111,8 @@
     width: 46%;
     position: relative;
     right: -300px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 .chat_sent:after,
@@ -137,21 +138,22 @@
 
 .chat_sent p {
     line-height: 1.3em;
-    padding: 7px 5px 5px 15px;
+    padding: 10px 10px 3px 15px;
     font-size: 15px;
 }
 
 .time_sent {
-    position: relative;
-    left: 220px;
-    top: -2px;
     font-size: 12px;
     color: #A0A0A0;
+    position: relative;
+    left: 230px;
+    top: -1px;
+    padding-bottom: 2px;
 }
 
-#status{
-  position: relative;
-  top: -25px;
-  left: 40%;
-  font-size: 13px;
+#status {
+    position: relative;
+    top: -25px;
+    left: 40%;
+    font-size: 13px;
 }

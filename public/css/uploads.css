@@ -32,14 +32,14 @@
     width: 25%;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.3), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    height: 200px;
+    height: 150px;
     border-radius: 5px;
     animation-name: uploadmodalopen;
     animation-duration: 1s;
 }
 
 .model_header p {
-    margin: 50px 0 0 30px;
+    margin: 35px 0 0 30px;
     font-size: 22px;
 }
 
@@ -91,21 +91,6 @@
     color: white;
 }
 
-#submit_file_btn {
-    margin: 26px 0 0 117px;
-    padding: 12px 30px;
-    color: #fff;
-    background-color: #7300e6;
-    border-radius: 5px;
-    font-size: 22px;
-    outline: none;
-}
-
-#submit_file_btn:hover {
-    cursor: pointer;
-    background-color: #9347de;
-}
-
 #close_upload_btn {
     float: right;
     color: #C0C0C0;
@@ -119,6 +104,13 @@
     cursor: pointer;
 }
 
+.not_an_image {
+    display: none;
+    color: red;
+    position: relative;
+    left: 70px;
+    top: 5px;
+}
 .more_files_error {
     display: none;
     color: red;
@@ -130,6 +122,11 @@
 .more_files_error p {
     font-size: 16px;
 }
+
+.not_an_image p {
+    font-size: 16px;
+}
+
 
 #image_main_div{
     overflow-x: scroll;
@@ -175,6 +172,41 @@
     color: 	#000;
     border: 0.5px solid	#484848;
     background-color:  rgba(255, 251, 251, 0.3);
+}
+
+
+.image_element{
+    position: relative;
+    left: 15px;
+    margin: 5px 0 5px 0;
+    float: left;
+    width: 52px;
+    height: 50px;
+    margin-right: 10px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.image_element:hover {
+    cursor: pointer;
+    
+}
+
+.image_blue_element{
+    position: relative;
+    left: 15px;
+    margin: 5px  0 5px 0;
+    float: left;
+    width: 52px;
+    height: 50px;
+    margin-right: 10px;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+
+.image_blue_element:hover {
+    cursor: pointer;
 }
 
 img {

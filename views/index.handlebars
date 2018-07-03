@@ -2,6 +2,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.dev.js"></script>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/messages.css">
@@ -112,21 +113,23 @@
                 <p id="header">Click the button to upload a file</p>
             </div>
             <div class="more_files_error"><p>More than 10 files uploaded!</p></div>
+            <div class="not_an_image"><p>Please uploads an image!</p></div>
+        
             <div>
                 <form id="submit_file">
                     <input type="text" id="file_name" value="No file chosen" readonly>
-                    <input type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} files selected"  onchange="previewFiles()" multiple/>
+                    <input type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} files selected"  multiple/>
                     <label id="label" for="file">
                         <span>Choose File</span>
                     </label>
                 </form>
-                <button id="submit_file_btn">Submit</button>
             </div>
         </div>
     </div>
     
-    <script src="js/chat.js"></script>
+     
     <script src="js/main.js"></script>
+    <script src="js/chat.js"></script>
     <script src="js/uploads.js"></script>
 </body>
 
